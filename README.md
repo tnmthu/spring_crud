@@ -10,10 +10,12 @@
 - Fill
     - Name: anything
     - Host: `posgresql_db`
-    - Port: `10001`
+    - Port: `5432`
     - Username: `metanet_admin`
     - Password: `password`
-    - Database: `metanet`
+    - Database or Maintainance Database: `metanet`
 
 # In IntelliJ
-- Same as above
+- Same as above except:
+    - Host: `localhost`
+    - Port: `10001`
