@@ -6,13 +6,10 @@
              version="2.0">
     <persistence-unit name="metanet" transaction-type="RESOURCE_LOCAL">
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:10001/metanet" />
-            <property name="javax.persistence.jdbc.user" value="metanet_admin" />
-            <property name="javax.persistence.jdbc.password" value="password" />
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />-->
-<!--            <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" />-->
-<!--            <property name="hibernate.show_sql" value="false" />-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:10001/metanet"/>
+            <property name="javax.persistence.jdbc.user" value="metanet_admin"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
         </properties>
     </persistence-unit>
 </persistence>

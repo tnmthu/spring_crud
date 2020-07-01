@@ -15,31 +15,27 @@ import java.util.Map;
 
 @SpringBootApplication
 public class ProjectManagementApplication {
-
-
-
     public static void main(String[] args) {
-//        SpringApplication.run(ProjectManagementApplication.class, args);
-        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("metanet");
-
-        EntityManager entityManager = managerFactory.createEntityManager();
-
-        EntityTransaction transaction = entityManager.getTransaction();
-
-        transaction.begin();
+        SpringApplication.run(ProjectManagementApplication.class, args);
+//        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("metanet");
+//
+//        EntityManager entityManager = managerFactory.createEntityManager();
+//
+//        EntityTransaction transaction = entityManager.getTransaction();
+//
+//        transaction.begin();
 //        Project prj = new Project();
-        User user = new User();
-        user.setId(1);
-        user.setFullname("Thu Tran");
-        user.setPassword("123");
-        user.setUsername("mthu");
+//        User user = new User();
+//        user.setFullname("Duy Luong");
+//        user.setPassword("123");
+//        user.setUsername("dluong");
 //        prj.setName("Test Project");
 //        prj.setOwner(user);
-
-        entityManager.persist(user);
+//
+//        entityManager.persist(user);
 //        entityManager.persist(prj);
-
-        transaction.commit();
+//
+//        transaction.commit();
 
     }
 

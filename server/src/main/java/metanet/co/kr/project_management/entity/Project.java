@@ -11,10 +11,7 @@ public class Project extends BaseEntity {
     @Column
     private String name;
 
-//    @OneToOne
-//    @JoinColumn(name = "owner")
-//    private User owner;
-
-    @Column
-    private String owner;
+    @OneToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
 }
