@@ -8,5 +8,5 @@ import java.io.Serializable;
 @Setter
 @Getter
 public abstract class BaseDto implements Serializable {
-    private int id;
+    private Long id;
 }

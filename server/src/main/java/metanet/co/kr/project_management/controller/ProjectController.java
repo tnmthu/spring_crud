@@ -1,20 +1,29 @@
 package metanet.co.kr.project_management.controller;
 
-import lombok.AllArgsConstructor;
 import metanet.co.kr.project_management.dto.ProjectDto;
-import metanet.co.kr.project_management.repository.ProjectRepository;
+import metanet.co.kr.project_management.service.BaseService;
 import metanet.co.kr.project_management.service.ProjectService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
-public class ProjectController {
-    private ProjectRepository projRepo;
+@RequestMapping("/project")
+public class ProjectController extends BaseController<ProjectDto, ProjectService> {
 
-    @GetMapping("/test")
-    public String test() {
-        return "test";
+    public ProjectController(ProjectService service) {
+        super(service);
     }
 
+    @Override
+    public ProjectDto add(@RequestBody ProjectDto projectDto) {
+        System.out.println(projectDto);
+        return super.add(projectDto);
+    }
+
+    @Override
+    public ProjectDto update(@PathVariable("id") Long id, @RequestBody ProjectDto dto) {
+        return super.update(id, dto);
+    }
 }
