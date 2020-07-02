@@ -1,5 +1,6 @@
 package metanet.co.kr.project_management.service.impl;
 
+import lombok.AllArgsConstructor;
 import metanet.co.kr.project_management.dto.BaseDto;
 import metanet.co.kr.project_management.dto.ProjectDto;
 import metanet.co.kr.project_management.entity.Project;
@@ -45,27 +46,26 @@ public class ProjectServiceImpl implements ProjectService {
         return 1;
     }
 
+    public boolean checkIsExisted(ProjectDto project) {
+        int index = DB.indexOf(project);
+        if (index >= 0) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public int updateProjectById(int id, ProjectDto newProject) {
         return selectProjectById(id)
                 .map(project -> {
                     int indexOfProjectUpdate = DB.indexOf(project);
-                    if (indexOfProjectUpdate >= 0) {
+                    boolean isProjectExisted = checkIsExisted(project);
+                    if (isProjectExisted) {
                         DB.set(indexOfProjectUpdate, new ProjectDto(id, newProject.getName()));
                         return 1;
                     }
                     return 0;
                 })
                 .orElse(0);
-    }
-
-    @Override
-    public BaseDto create(BaseDto dto) {
-        return null;
-    }
-
-    @Override
-    public BaseDto update(BaseDto dto) {
-        return null;
     }
 }

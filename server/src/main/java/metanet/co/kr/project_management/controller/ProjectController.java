@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/project")
 public class ProjectController {
     private ProjectRepository projRepo;
 
@@ -17,7 +16,5 @@ public class ProjectController {
     public String test() {
         return "test";
     }
-
-
 
 }

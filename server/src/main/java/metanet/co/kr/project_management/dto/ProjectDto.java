@@ -1,6 +1,10 @@
 package metanet.co.kr.project_management.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -12,7 +16,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 public class ProjectDto extends BaseDto {
-    ProjectDto() {
+    public ProjectDto(int id, String name) {
         super();
     }
 
@@ -26,10 +30,6 @@ public class ProjectDto extends BaseDto {
 
     public Date startDate;
     public String owner;
-
-    public ProjectDto(int id, String name) {
-        super();
-    }
 
     public String getName() {
         return name;
