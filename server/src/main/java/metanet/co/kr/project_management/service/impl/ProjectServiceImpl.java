@@ -46,8 +46,8 @@ public class ProjectServiceImpl implements ProjectService {
         return 1;
     }
 
-    public boolean checkIsExisted(ProjectDto project) {
-        int index = DB.indexOf(project);
+    public boolean checkIsExisted(ProjectDto project, List<ProjectDto> projectList) {
+        int index = projectList.indexOf(project);
         if (index >= 0) {
             return true;
         }
@@ -59,7 +59,7 @@ public class ProjectServiceImpl implements ProjectService {
         return selectProjectById(id)
                 .map(project -> {
                     int indexOfProjectUpdate = DB.indexOf(project);
-                    boolean isProjectExisted = checkIsExisted(project);
+                    boolean isProjectExisted = checkIsExisted(project, DB);
                     if (isProjectExisted) {
                         DB.set(indexOfProjectUpdate, new ProjectDto(id, newProject.getName()));
                         return 1;
