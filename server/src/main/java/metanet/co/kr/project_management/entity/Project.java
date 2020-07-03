@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -18,16 +19,9 @@ public class Project extends BaseEntity {
     @Column
     private String description;
 
-//    @OneToOne
-//    @JoinColumn(name = "owner_id")
-//    private User owner;
+    private Date started_date;
 
-
-    @Override
-    public String toString() {
-        return "Project{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+    @OneToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
 }

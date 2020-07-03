@@ -54,5 +54,4 @@ public abstract class ServiceImpl<D extends BaseDto, E extends BaseEntity, R ext
 //        if (!entity.isPresent()) throw new BusinessException(MessageKey.NOT_FOUND, id.toString());
         return entity.get();
     }
-
 }

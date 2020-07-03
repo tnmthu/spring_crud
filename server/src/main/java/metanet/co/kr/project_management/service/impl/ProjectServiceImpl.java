@@ -3,6 +3,7 @@ package metanet.co.kr.project_management.service.impl;
 import metanet.co.kr.project_management.dto.ProjectDto;
 import metanet.co.kr.project_management.entity.Project;
 
+import metanet.co.kr.project_management.entity.User;
 import metanet.co.kr.project_management.repository.ProjectRepo;
 import metanet.co.kr.project_management.service.ProjectService;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,7 @@ import java.util.List;
 public class ProjectServiceImpl extends ServiceImpl<ProjectDto, Project, ProjectRepo>  implements ProjectService {
 
     private final ProjectRepo projectRepo;
+//    private final UserRepo userRepo;
     private final ModelMapper modelMapper;
 
     @Autowired
@@ -28,15 +30,25 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDto, Project, Project
     public ProjectDto add(ProjectDto dto) {
         Project project = toEntity(dto);
         project = this.projectRepo.save(project);
-        System.out.println(project);
         return toDTO(project);
     }
 
     @Override
     public ProjectDto update(ProjectDto dto) {
+        Project entity = findEntityById(dto.getId());
+//        User owner = getUser;
+        entity = toEntity(dto);
+//        entity.setOwner(owner);
+        entity = this.projectRepo.save(entity);
+        return toDTO(entity);
+
+
 //        Optional<Project> foundProject = this.projectRepo.findById(dto.getId());
-        return null;
     }
+
+//    private User getUserById(Long id) {
+//        return
+//    }
 
     @Override
     protected ProjectDto toDTO(Project project) {
@@ -67,38 +79,5 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDto, Project, Project
     public boolean delete(Long id) {
         return false;
     }
-//
-//    @Override
-//    public int updateProjectById(int id, ProjectDto newProject) {
-//        return selectProjectById(id)
-//                .map(project -> {
-//                    int indexOfProjectUpdate = DB.indexOf(project);
-//                    boolean isProjectExisted = checkIsExisted(project, DB);
-//                    if (isProjectExisted) {
-//                        DB.set(indexOfProjectUpdate, new ProjectDto(id, newProject.getName()));
-//                        return 1;
-//                    }
-//                    return 0;
-//                })
-//                .orElse(0);
-    //    public Optional<ProjectDto> selectProjectById(int id) {
-//        return DB.stream()
-//                .filter(project -> project.getId() == id)
-//                .findFirst();
-//    }
-//
-//    public int deleteProjectById(int id) {
-//        Optional<ProjectDto> projectTemp = selectProjectById(id);
-//        if (projectTemp == null) {
-//            return 0;
-//        }
-//        DB.remove(projectTemp.get());
-//        return 1;
-//    }
-//
-//    public boolean checkIsExisted(ProjectDto project, List<ProjectDto> projectList) {
-//        int index = projectList.indexOf(project);
-//        if (index >= 0) {
-//            return true;
-//        }
+
 }

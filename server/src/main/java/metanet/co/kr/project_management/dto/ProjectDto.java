@@ -14,10 +14,11 @@ public class ProjectDto extends BaseDto {
     }
 
     @NotBlank
-//    @Size(max = 100)
     private String name;
 
     @NotBlank
-//    @Size(max = 2047)
     private String description;
+
+    @NotBlank
+    private Date started_date;
 }
