@@ -30,7 +30,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDto, Project, Project
     public ProjectDto add(ProjectDto dto) {
         Project project = toEntity(dto);
         project = this.projectRepo.save(project);
-        System.out.println(project);
         return toDTO(project);
     }
 
@@ -40,8 +39,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDto, Project, Project
 //        User owner = getUser;
         entity = toEntity(dto);
 //        entity.setOwner(owner);
-        // TODO: check according to TCM
-        entity =getRepository().save(entity);
+        entity = this.projectRepo.save(entity);
         return toDTO(entity);
 
 
