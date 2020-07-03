@@ -21,8 +21,7 @@ public abstract class BaseController<D extends BaseDto, SV extends BaseService> 
 
     @PutMapping("/{id}")
     public D update(@PathVariable("id") Long id, @RequestBody D dto) {
-//        dto.setId(id);
+        dto.setId(id);
         return (D) service.update(dto);
     }
-
 }

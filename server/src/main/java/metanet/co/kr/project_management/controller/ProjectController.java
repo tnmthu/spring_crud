@@ -1,7 +1,6 @@
 package metanet.co.kr.project_management.controller;
 
 import metanet.co.kr.project_management.dto.ProjectDto;
-import metanet.co.kr.project_management.service.BaseService;
 import metanet.co.kr.project_management.service.ProjectService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +17,6 @@ public class ProjectController extends BaseController<ProjectDto, ProjectService
 
     @Override
     public ProjectDto add(@RequestBody ProjectDto projectDto) {
-        System.out.println(projectDto);
         return super.add(projectDto);
     }
 
